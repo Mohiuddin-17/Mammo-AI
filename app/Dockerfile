@@ -10,11 +10,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Copy all Python files directly (no inner app/ subfolder)
+# Copy all Python files
 COPY *.py ./
-COPY weights/ ./weights/
+
+# weights/ is NOT copied here — downloaded at startup from Google Drive
 
 EXPOSE 8000
 
-# main:app because main.py sits directly in /app, not in a subpackage
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
