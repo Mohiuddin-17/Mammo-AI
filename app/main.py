@@ -14,6 +14,13 @@ from slowapi.errors import RateLimitExceeded
 from model import load_model, get_model
 from preprocess import preprocess_for_inference
 from schemas import PredictionResponse
+from download_weights import download_weights
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    download_weights()   # ← add this line before load_model()
+    load_model()
+    yield
 
 # ── Logging (no PHI ever logged) ───────────────────────────────────────────
 logging.basicConfig(

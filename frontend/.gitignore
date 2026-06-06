@@ -9,3 +9,5 @@ node_modules/
 data/
 *.dcm
 *.dicom
+app/weights/model_best.pt
+app/weights/model_config.json
