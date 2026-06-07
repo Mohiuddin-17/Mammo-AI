@@ -53,9 +53,9 @@ FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        FRONTEND_URL,
         "http://localhost:3000",
         "http://localhost:5173",
+        "https://mohiuddin-17-mammo-frontend.hf.space",
     ],
     allow_credentials=True,
     allow_methods=["POST", "GET"],
