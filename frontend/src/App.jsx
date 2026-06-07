@@ -233,6 +233,9 @@ export default function App() {
                 <p className={`text-2xl font-bold ${style.text}`}>
                   {result.classification}
                 </p>
+                <p className="text-sm font-medium text-slate-500 mt-1">
+                  Confidence: <span className={`font-bold ${style.text}`}>{(result.confidence * 100).toFixed(1)}%</span>
+                </p>
               </div>
             </div>
 
